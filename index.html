@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff"
+			http-equiv="Content-Type"
+		/>
+
+		<!--    style-->
+		<link rel="stylesheet" href="style.css" />
+		<title>Shop Basket</title>
+	</head>
+
+	<body>
+		<section class="products">
+			<h1>Products</h1>
+			<ul id="products-list">
+				<li>
+					Latitude 5410 - 5490.00<button
+						class="btn-product-buy"
+						data-name="Latitude 5410"
+						data-price="5490.00"
+					>
+						Buy!
+					</button>
+				</li>
+				<li>
+					Vostro 5400 - 4590.00<button
+						class="btn-product-buy"
+						data-name="Vostro 5400"
+						data-price="4590.00"
+					>
+						Buy!
+					</button>
+				</li>
+			</ul>
+		</section>
+
+		<section class="basket">
+			<h1>Shopping Cart</h1>
+			<ul id="basket-list"></ul>
+			<p class="order-value">Total value <span id="total-value">0</span> zł.</p>
+			<button class="place-order" disabled>Place order</button>
+		</section>
+		<!--  scripts-->
+		<script src="/src/settings.js"></script>
+		<script src="/src/basket.js"></script>
+		<script src="/src/ui.js"></script>
+		<script src="/src/admin.js"></script>
+	</body>
+</html>
