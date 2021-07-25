@@ -18,18 +18,18 @@
 			<h1>Products</h1>
 			<ul id="products-list">
 				<li>
-					Latitude 5410 - 5490.00<button
+					<span>Dell Latitude 5410</span> - 5490.00<button
 						class="btn-product-buy"
-						data-name="Latitude 5410"
+						data-name="Dell Latitude 5410"
 						data-price="5490.00"
 					>
 						Buy!
 					</button>
 				</li>
 				<li>
-					Vostro 5400 - 4590.00<button
+					<span>Dell Vostro 5400</span> - 4590.00<button
 						class="btn-product-buy"
-						data-name="Vostro 5400"
+						data-name="Dell Vostro 5400"
 						data-price="4590.00"
 					>
 						Buy!
@@ -43,6 +43,25 @@
 			<ul id="basket-list"></ul>
 			<p class="order-value">Total value <span id="total-value">0</span> zł.</p>
 			<button class="place-order" disabled>Place order</button>
+		</section>
+
+		<section class="admin">
+			<h1>Administration panel</h1>
+			<form class="add-product-form">
+				<input
+					type="text"
+					placeholder="Enter product name"
+					name="product-name"
+					required
+				/>
+				<input
+					type="number"
+					placeholder="Enter product price"
+					name="product-price"
+					required
+				/>
+				<button type="submit">Add product</button>
+			</form>
 		</section>
 		<!--  scripts-->
 		<script src="/src/settings.js"></script>

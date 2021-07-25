@@ -1,7 +1,7 @@
-const buyButtons = settings.buyButtons;
-const basketList = settings.basketList;
-const totalValue = settings.totalValue;
-const placeOrderBtn = settings.placeOrderBtn;
+const basketList = settings.lists.basketList;
+const buyButtons = [...settings.buttons.buyButtons];
+const placeOrderBtn = settings.buttons.placeOrderBtn;
+const totalValue = settings.values.totalValue;
 
 const basket = new Basket();
 basket.getFromLocalStorage();
@@ -18,11 +18,13 @@ const createBasketUi = () => {
 	for (const { id, text } of basket.getBasketSumary()) {
 		const li = document.createElement('li');
 		const btn = document.createElement('button');
+		const span = document.createElement('span');
 
 		btn.textContent = 'Remove';
 		btn.dataset.id = id;
 		btn.addEventListener('click', removeItem, false);
-		li.innerHTML = text;
+		span.innerHTML = text;
+		li.appendChild(span);
 		li.appendChild(btn);
 
 		basketList.appendChild(li);
