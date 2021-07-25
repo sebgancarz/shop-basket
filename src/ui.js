@@ -4,13 +4,12 @@ const totalValue = settings.totalValue;
 const placeOrderBtn = settings.placeOrderBtn;
 
 const basket = new Basket();
+basket.getFromLocalStorage();
 
-console.log(basket);
+basket.items !== null ? basket.getFromLocalStorage() : (basket.items = []);
 
 const createBasketUi = () => {
 	basketList.innerHTML = '';
-
-	console.log(basket.getBasketSumary());
 
 	basket.items.length > 0
 		? placeOrderBtn.removeAttribute('disabled')
@@ -44,7 +43,6 @@ const addProductToBasket = (event) => {
 
 const removeItem = (event) => {
 	const id = Number(event.target.dataset.id);
-	console.log(id);
 	basket.remove(id);
 	basket.saveToLocalStorage();
 	createBasketUi();
@@ -58,6 +56,8 @@ const placeOrder = () => {
 	basket.saveToLocalStorage();
 	createBasketUi();
 };
+
+createBasketUi();
 
 for (const button of buyButtons) {
 	button.addEventListener('click', addProductToBasket, false);

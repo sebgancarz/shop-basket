@@ -1,6 +1,6 @@
 class Basket {
 	constructor() {
-		this.items ? this.getFromLocalStorage() : [];
+		this.items = [];
 	}
 
 	add(item) {
@@ -30,12 +30,12 @@ class Basket {
 		this.items.length = 0;
 	}
 
-	getFromLocalStorage() {
-		JSON.parse(localStorage.getItem('basket'));
+	saveToLocalStorage() {
+		localStorage.setItem('basket', JSON.stringify(this.items));
 	}
 
-	saveToLocalStorage() {
-		localStorage.setItem('basket', JSON.stringify(basket.items));
+	getFromLocalStorage() {
+		this.items = JSON.parse(localStorage.getItem('basket'));
 	}
 }
 
