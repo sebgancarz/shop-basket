@@ -4,9 +4,9 @@ const placeOrderBtn = settings.buttons.placeOrderBtn;
 const totalValue = settings.values.totalValue;
 
 const basket = new Basket();
-basket.getFromLocalStorage();
+const savedBasket = basket.getFromLocalStorage();
 
-basket.items !== null ? basket.getFromLocalStorage() : (basket.items = []);
+savedBasket !== null ? (basket.items = savedBasket) : (basket.items = []);
 
 const createBasketUi = () => {
 	basketList.innerHTML = '';

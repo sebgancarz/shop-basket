@@ -35,7 +35,7 @@ class Basket {
 	}
 
 	getFromLocalStorage() {
-		this.items = JSON.parse(localStorage.getItem('basket'));
+		return JSON.parse(localStorage.getItem('basket'));
 	}
 }
 
