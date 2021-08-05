@@ -1,10 +1,11 @@
 class Basket {
 	constructor() {
-		this.items = [];
+		this.items = this.getFromLocalStorage() ?? [];
 	}
 
 	add(item) {
 		this.items.push(item);
+		this.saveToLocalStorage();
 	}
 
 	getTotalValue() {
@@ -24,24 +25,27 @@ class Basket {
 
 	remove(index) {
 		this.items.splice(index, 1);
+		this.saveToLocalStorage();
 	}
 
 	clear() {
 		this.items.length = 0;
+		this.saveToLocalStorage();
 	}
 
 	saveToLocalStorage() {
-		localStorage.setItem('basket', JSON.stringify(this.items));
+		localStorage.setItem('basket-items', JSON.stringify(this.items));
 	}
 
 	getFromLocalStorage() {
-		return JSON.parse(localStorage.getItem('basket'));
+		return JSON.parse(localStorage.getItem('basket-items'));
 	}
 }
 
 class Product {
 	constructor(productName, productPrice) {
-		(this.name = productName), (this.price = productPrice);
+		this.name = productName;
+		this.price = productPrice;
 	}
 
 	setNewPrice(newPrice) {

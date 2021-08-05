@@ -4,9 +4,6 @@ const placeOrderBtn = settings.buttons.placeOrderBtn;
 const totalValue = settings.values.totalValue;
 
 const basket = new Basket();
-const savedBasket = basket.getFromLocalStorage();
-
-savedBasket !== null ? (basket.items = savedBasket) : (basket.items = []);
 
 const createBasketUi = () => {
 	basketList.innerHTML = '';
@@ -39,14 +36,12 @@ const addProductToBasket = (event) => {
 	const newProduct = new Product(name, price);
 	basket.add(newProduct);
 
-	basket.saveToLocalStorage();
 	createBasketUi();
 };
 
 const removeItem = (event) => {
 	const id = Number(event.target.dataset.id);
 	basket.remove(id);
-	basket.saveToLocalStorage();
 	createBasketUi();
 };
 
@@ -55,7 +50,6 @@ const placeOrder = () => {
 		`Thank you for your order. Total value of ordered items is: ${basket.getTotalValue()} zł.`
 	);
 	basket.clear();
-	basket.saveToLocalStorage();
 	createBasketUi();
 };
 
